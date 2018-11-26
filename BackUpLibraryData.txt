@@ -1,0 +1,33 @@
+To Kill a Mockingbird,Harper Lee,Available,1/1/0001 12:00:00 AM
+Ceremony,Leslie Marmon Silko,Available,1/1/0001 12:00:00 AM
+Things Fall Apart,Chinua Achebe,Available,1/1/0001 12:00:00 AM
+Moby-Dick,Herman Melville,Available,1/1/0001 12:00:00 AM
+The Color Purple,Alice Walker,Available,1/1/0001 12:00:00 AM
+Catch-22,Joseph Heller,Available,1/1/0001 12:00:00 AM
+Atlas Shrugged,Ayn Rand,Available,1/1/0001 12:00:00 AM
+The Maltese Falcon,Dashiell Hammett,Available,1/1/0001 12:00:00 AM
+The Lord of the Rings,J.R.R. Tolkien,Available,1/1/0001 12:00:00 AM
+Hamlet,William Shakespeare,Available,1/1/0001 12:00:00 AM
+Giovanni's Room,James Baldwin,Available,1/1/0001 12:00:00 AM
+Ulysses,James Joyce,Available,1/1/0001 12:00:00 AM
+Invisible Man,Ralph Ellison,Available,1/1/0001 12:00:00 AM
+Watchmen,Alan Moore,Available,1/1/0001 12:00:00 AM
+Schindler's List,Thomas Keneally,Available,1/1/0001 12:00:00 AM
+The Years of Rice and Salt,Kim Stanley Robinson,Available,1/1/0001 12:00:00 AM
+The Year of the Flood,Margaret Atwood,Available,1/1/0001 12:00:00 AM
+The Decameron,Giovanni Boccaccio,Available,1/1/0001 12:00:00 AM
+On the Road,Jack Kerouac,Available,1/1/0001 12:00:00 AM
+Cloud Atlas,David Mitchell,Available,1/1/0001 12:00:00 AM
+The Three-Body Problem,Liu Cixin,Available,1/1/0001 12:00:00 AM
+For Whom the Bell Tolls,Ernest Hemingway,Available,1/1/0001 12:00:00 AM
+Fear and Trembling,Soren Kierkegaard,Available,1/1/0001 12:00:00 AM
+Barkskins,Annie Proulx,Available,1/1/0001 12:00:00 AM
+1984,George Orwell,Available,1/1/0001 12:00:00 AM
+100 Years of Solitude,Gabriel Garcia Marquez,Available,1/1/0001 12:00:00 AM
+NIne Stories,J.D. Salinger,Available,1/1/0001 12:00:00 AM
+2666,Roberto Bolano,Available,1/1/0001 12:00:00 AM
+Day of the Locust,Nathaniel West,Available,1/1/0001 12:00:00 AM
+Do Androids Dream of Electric Sheep?,Philip K. Dick,Available,1/1/0001 12:00:00 AM
+The Buried Giant,Kazuo Ishiguro,Available,1/1/0001 12:00:00 AM
+Desert Solitaire,Edward Abbey,Available,1/1/0001 12:00:00 AM
+White Noise,Don DeLillo,Unavailable,1/1/0001 12:00:00 AM
