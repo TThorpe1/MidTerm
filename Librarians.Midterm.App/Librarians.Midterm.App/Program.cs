@@ -39,7 +39,7 @@ namespace Librarians.Midterm.App
                         break;
                     case '2':
                         Console.Write("Enter title keyword: ");
-                        library.SearchTitle(Console.ReadLine().ToLowerInvariant());
+                        library.SearchTitle(Console.ReadLine().ToLower());
                         break;
                     case '3':
                         Console.Write("Enter author: ");
