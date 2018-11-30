@@ -23,7 +23,7 @@ namespace Librarians.Midterm.App
         {
             Library library = new Library();
             library.Load();
-
+            
             char choice = ' ';
             int number;
             while (choice != '6')
@@ -36,14 +36,16 @@ namespace Librarians.Midterm.App
                 {
                     case '1':
                         library.DisplayBooks();
+                      
                         break;
                     case '2':
                         Console.Write("Enter title keyword: ");
-                        library.SearchTitle(Console.ReadLine().ToLower());
+                        library.SearchTitle(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '3':
                         Console.Write("Enter author: ");
-                        library.SearchAuthor(Console.ReadLine());
+
+                        library.SearchAuthor(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '4':
                         library.DisplayBooks

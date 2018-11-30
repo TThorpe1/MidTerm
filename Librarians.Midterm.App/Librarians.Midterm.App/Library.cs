@@ -71,34 +71,39 @@ namespace Librarians.Midterm.App
         public void SearchTitle(string keyword)
         {
             List<Book> results = new List<Book>();
-            
-          
+
+
             foreach (Book book in Books)
             {
-
-                if (book.Title.Contains(keyword))
+               
+                if (book.Title.ToLowerInvariant().Contains(keyword))
                 {
                     results.Add(book);
-                    
                 }
                 
-
+                
             }
             foreach (Book book in results)
             {
+
                 book.Display();
                 Console.WriteLine();
             }
+           
         }
         public void SearchAuthor(string author)
         {
             List<Book> results = new List<Book>();
-
+                        
             foreach (Book book in Books)
             {
-                if (book.Author.Contains(author))
-                 results.Add(book); 
-         
+                
+
+                if (book.Author.ToLowerInvariant().Contains(author))
+                {
+                    results.Add(book);
+                }
+              
             }
             foreach (Book book in results)
             {
@@ -123,10 +128,10 @@ namespace Librarians.Midterm.App
             {
                 target.Status = Book.BookStatus.CheckedOut;
                 target.DueDate = DateTime.Today.AddDays(14);
-                Console.WriteLine("You checked out the book.  Due date: " + target.DueDate.ToString("d"));
+                Console.WriteLine($"You checked out {target.Title}.  Due date: " + target.DueDate.ToString("d"));
 
             }
-
+            Console.WriteLine("would you like to check out another?");
         }
         public void ReturnBook(int index)
         {
