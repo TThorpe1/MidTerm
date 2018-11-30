@@ -29,7 +29,7 @@ namespace Librarians.Midterm.App
             while (choice != '6')
             {
                 PrintMenu();
-                Console.Write("\nEnter choice: ");
+                Console.Write("\nEnter number choice: ");
                 choice = Console.ReadLine()[0];
 
                 switch (choice)
@@ -46,13 +46,16 @@ namespace Librarians.Midterm.App
                         library.SearchAuthor(Console.ReadLine());
                         break;
                     case '4':
-                        Console.Write("Enter book number to checkout: ");
+                        library.DisplayBooks
+                            ();
+                        Console.Write("Enter book number to checkout: \n");
                         if (Int32.TryParse(Console.ReadLine(), out number))
                             library.CheckoutBook(number - 1);
                         else
                         {
                             Console.WriteLine("Invalid input");
                         }
+
                         break;
                     case '5':
                         Console.Write("Enter the book number to return: ");
@@ -64,7 +67,7 @@ namespace Librarians.Midterm.App
                         }
                         break;
                     case '6':
-                        Console.WriteLine("Goodbye");
+                        Console.WriteLine("\nGOODBYE\nTHANK YOU FOR USING THE LIBRARY TERMINAL!\n");
                         library.Save();
                         break;
                     default:
