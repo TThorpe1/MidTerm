@@ -71,13 +71,18 @@ namespace Librarians.Midterm.App
         public void SearchTitle(string keyword)
         {
             List<Book> results = new List<Book>();
-
+            
+          
             foreach (Book book in Books)
             {
 
-                if (book.Title.IndexOf($"{keyword}", StringComparison.OrdinalIgnoreCase) >= 0)
+                if (book.Title.Contains(keyword))
+                {
                     results.Add(book);
-                else Console.WriteLine("Nothing by that keyword found"); break;
+                    
+                }
+                
+
             }
             foreach (Book book in results)
             {
@@ -91,9 +96,9 @@ namespace Librarians.Midterm.App
 
             foreach (Book book in Books)
             {
-                if (book.Author.Contains(author.ToUpperInvariant()))
-                { results.Add(book); }
-                else { Console.WriteLine("No Authors by that name found"); }
+                if (book.Author.Contains(author))
+                 results.Add(book); 
+         
             }
             foreach (Book book in results)
             {
