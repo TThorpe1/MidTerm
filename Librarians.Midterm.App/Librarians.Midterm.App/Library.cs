@@ -131,7 +131,7 @@ namespace Librarians.Midterm.App
                 Console.WriteLine($"You checked out {target.Title}.  Due date: " + target.DueDate.ToString("d"));
 
             }
-            Console.WriteLine("would you like to check out another?");
+            
         }
         public void ReturnBook(int index)
         {
