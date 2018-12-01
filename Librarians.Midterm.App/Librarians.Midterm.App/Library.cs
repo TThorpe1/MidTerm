@@ -12,6 +12,7 @@ namespace Librarians.Midterm.App
         const string FILENAME = "books.txt";
 
         public List<Book> Books { get; private set; }
+        public List<Book> Checkout { get; set; }
 
         public Library()
         {
@@ -56,6 +57,14 @@ namespace Librarians.Midterm.App
         {
             Books.Add(book);
         }
+        public void DisplayCheckedout()
+        {
+            foreach (Book book in Checkout)
+            {
+                Console.WriteLine($"You have checked out {book.Title}. It is dueback by {book.DueDate} ");
+
+            }
+        }
         public void DisplayBooks()
         {
             int index = 1;
@@ -71,24 +80,30 @@ namespace Librarians.Midterm.App
         public void SearchTitle(string keyword)
         {
             List<Book> results = new List<Book>();
-            
-          
+
+
             foreach (Book book in Books)
             {
 
-                if (book.Title.Contains(keyword))
-                {
+                if (book.Title.ToLowerInvariant().Contains(keyword))
                     results.Add(book);
-                    
-                }
-                
+            }
 
-            }
-            foreach (Book book in results)
-            {
-                book.Display();
-                Console.WriteLine();
-            }
+                if (results.Count != 0)
+                {
+
+                    foreach (Book books in results)
+                    {
+
+                        books.Display();
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\n*****No keyword by that name found in Library*****\n");
+                }
+            
         }
         public void SearchAuthor(string author)
         {
@@ -96,37 +111,50 @@ namespace Librarians.Midterm.App
 
             foreach (Book book in Books)
             {
-                if (book.Author.Contains(author))
-                 results.Add(book); 
-         
+
+                if (book.Author.ToLowerInvariant().Contains(author))
+                    results.Add(book);
+
             }
-            foreach (Book book in results)
+            if (results.Count != 0)
             {
-                book.Display();
-                Console.WriteLine();
+                foreach (Book book in results)
+                {
+                    book.Display();
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("\n*****No author by that name found in Library*****\n");
             }
         }
         public void CheckoutBook(int index)
         {
-            if (index < 0 || index >= Books.Count)
-            {
-                Console.WriteLine("Invalid book number");
-                return;
-            }
-            Book target = Books[index];
+            List<Book> Checkout = new List<Book>();
+            
+                if (index < 0 || index >= Books.Count)
+                {
+                    Console.WriteLine("Invalid book number");
+                    return;
+                }
+                Book target = Books[index];
 
-            if (target.Status ==  Book.BookStatus.CheckedOut)
-            {
-                Console.WriteLine("Sorry!  The Book is already checked out.  Due date: " + target.DueDate.ToString("d"));
-            }
-            else
-            {
-                target.Status = Book.BookStatus.CheckedOut;
-                target.DueDate = DateTime.Today.AddDays(14);
-                Console.WriteLine("You checked out the book.  Due date: " + target.DueDate.ToString("d"));
-
-            }
-
+                if (target.Status == Book.BookStatus.CheckedOut)
+                {
+                    Console.WriteLine("Sorry!  The Book is already checked out.  Due date: " + target.DueDate.ToString("d"));
+                }
+                else
+                {
+                    target.Status = Book.BookStatus.CheckedOut;
+                    target.DueDate = DateTime.Today.AddDays(14);
+                    Console.WriteLine($"\nYou checked out {target.Title}.  It is due back on or before: " + target.DueDate.ToString("d"));
+                    Checkout.Add(target);
+                   
+                }
+            
+           
+            
         }
         public void ReturnBook(int index)
         {

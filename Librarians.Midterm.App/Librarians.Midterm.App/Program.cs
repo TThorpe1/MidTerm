@@ -23,7 +23,6 @@ namespace Librarians.Midterm.App
         {
             Library library = new Library();
             library.Load();
-
             char choice = ' ';
             int number;
             while (choice != '6')
@@ -37,21 +36,27 @@ namespace Librarians.Midterm.App
                     case '1':
                         Console.Clear();
                         library.DisplayBooks();
+                      
                         break;
                     case '2':
                         Console.Clear();
                         Console.Write("Enter title keyword: ");
-                        library.SearchTitle(Console.ReadLine().ToLower());
+                        library.SearchTitle(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '3':
                         Console.Clear();
                         Console.Write("Enter author: ");
-                        library.SearchAuthor(Console.ReadLine());
+
+                        library.SearchAuthor(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '4':
+<<<<<<< HEAD
+                        library.DisplayBooks();
+=======
                         Console.Clear();
                         library.DisplayBooks
                             ();
+>>>>>>> ed0920bc698ff678e5af42f41a160e07b5ba4bc3
                         Console.Write("Enter book number to checkout: \n");
                         if (Int32.TryParse(Console.ReadLine(), out number))
                             library.CheckoutBook(number - 1);
@@ -63,6 +68,18 @@ namespace Librarians.Midterm.App
 
                         break;
                     case '5':
+<<<<<<< HEAD
+                        
+                            Console.Write("Enter the book number to return: ");
+                            if (Int32.TryParse(Console.ReadLine(), out number))
+                                library.ReturnBook(number - 1);
+
+                            else
+                            {
+                                Console.WriteLine("Invalid input");
+                            }
+                            
+=======
                         Console.Clear();
                         Console.Write("Enter the book number to return: ");
                         if (Int32.TryParse(Console.ReadLine(), out number))
@@ -72,11 +89,13 @@ namespace Librarians.Midterm.App
                             Console.Clear();
                             Console.WriteLine("Invalid input");
                         }
+>>>>>>> ed0920bc698ff678e5af42f41a160e07b5ba4bc3
                         break;
                     case '6':
                         Console.Clear();
                         Console.WriteLine("\nGOODBYE\nTHANK YOU FOR USING THE LIBRARY TERMINAL!\n");
                         library.Save();
+                        
                         break;
                     default:
                         Console.Clear();
