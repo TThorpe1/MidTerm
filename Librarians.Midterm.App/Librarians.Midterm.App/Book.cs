@@ -27,12 +27,12 @@ namespace Librarians.Midterm.App
         }
         public void Display()
         {
-            Console.Write("Title:  " + Title.PadRight(25) + "By: " + Author.PadRight(25));
+            Console.Write("\t" + "Title:  " + Title.PadRight(25) + "By: " + Author.PadRight(25));
 
             Console.Write(Status == BookStatus.OnShelf ? "On Shelf".PadRight(20) : "Checked Out".PadRight(20));
             if (Status == BookStatus.CheckedOut)
                 Console.Write("Due on: " + DueDate.ToString("d"));
             Console.WriteLine();
-        }
+         }
     }
 }
