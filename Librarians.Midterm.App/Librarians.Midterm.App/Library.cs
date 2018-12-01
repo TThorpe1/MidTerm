@@ -12,6 +12,7 @@ namespace Librarians.Midterm.App
         const string FILENAME = "books.txt";
 
         public List<Book> Books { get; private set; }
+        public List<Book> Checkout { get; set; }
 
         public Library()
         {
@@ -55,6 +56,14 @@ namespace Librarians.Midterm.App
         public void AddBook(Book book)
         {
             Books.Add(book);
+        }
+        public void DisplayCheckedout()
+        {
+            foreach (Book book in Checkout)
+            {
+                Console.WriteLine($"You have checked out {book.Title}. It is dueback by {book.DueDate} ");
+
+            }
         }
         public void DisplayBooks()
         {
@@ -122,24 +131,29 @@ namespace Librarians.Midterm.App
         }
         public void CheckoutBook(int index)
         {
-            if (index < 0 || index >= Books.Count)
-            {
-                Console.WriteLine("Invalid book number");
-                return;
-            }
-            Book target = Books[index];
+            List<Book> Checkout = new List<Book>();
+            
+                if (index < 0 || index >= Books.Count)
+                {
+                    Console.WriteLine("Invalid book number");
+                    return;
+                }
+                Book target = Books[index];
 
-            if (target.Status ==  Book.BookStatus.CheckedOut)
-            {
-                Console.WriteLine("Sorry!  The Book is already checked out.  Due date: " + target.DueDate.ToString("d"));
-            }
-            else
-            {
-                target.Status = Book.BookStatus.CheckedOut;
-                target.DueDate = DateTime.Today.AddDays(14);
-                Console.WriteLine($"You checked out {target.Title}.  Due date: " + target.DueDate.ToString("d"));
-
-            }
+                if (target.Status == Book.BookStatus.CheckedOut)
+                {
+                    Console.WriteLine("Sorry!  The Book is already checked out.  Due date: " + target.DueDate.ToString("d"));
+                }
+                else
+                {
+                    target.Status = Book.BookStatus.CheckedOut;
+                    target.DueDate = DateTime.Today.AddDays(14);
+                    Console.WriteLine($"\nYou checked out {target.Title}.  It is due back on or before: " + target.DueDate.ToString("d"));
+                    Checkout.Add(target);
+                   
+                }
+            
+           
             
         }
         public void ReturnBook(int index)

@@ -23,7 +23,6 @@ namespace Librarians.Midterm.App
         {
             Library library = new Library();
             library.Load();
-            
             char choice = ' ';
             int number;
             while (choice != '6')
@@ -48,8 +47,7 @@ namespace Librarians.Midterm.App
                         library.SearchAuthor(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '4':
-                        library.DisplayBooks
-                            ();
+                        library.DisplayBooks();
                         Console.Write("Enter book number to checkout: \n");
                         if (Int32.TryParse(Console.ReadLine(), out number))
                             library.CheckoutBook(number - 1);
@@ -60,17 +58,21 @@ namespace Librarians.Midterm.App
 
                         break;
                     case '5':
-                        Console.Write("Enter the book number to return: ");
-                        if (Int32.TryParse(Console.ReadLine(), out number))
-                            library.ReturnBook(number - 1);
-                        else
-                        {
-                            Console.WriteLine("Invalid input");
-                        }
+                        
+                            Console.Write("Enter the book number to return: ");
+                            if (Int32.TryParse(Console.ReadLine(), out number))
+                                library.ReturnBook(number - 1);
+
+                            else
+                            {
+                                Console.WriteLine("Invalid input");
+                            }
+                            
                         break;
                     case '6':
                         Console.WriteLine("\nGOODBYE\nTHANK YOU FOR USING THE LIBRARY TERMINAL!\n");
                         library.Save();
+                        
                         break;
                     default:
                         Console.WriteLine("Invalid input");
