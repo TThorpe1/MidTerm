@@ -73,13 +73,36 @@ namespace Librarians.Midterm.App
                             Console.WriteLine("Invalid input");
                         }
                         break;
+                       
                     case '6':
-                        Console.Clear();
-                        Console.WriteLine("\nGOODBYE\nTHANK YOU FOR USING THE LIBRARY TERMINAL!\n");
+                        bool goAgain = true;
+                        var DonatedList = new List<Book>();
+                        Donate.ExitMessage();
+                        Donate.AgainLoop(ref goAgain);
+                        while (goAgain)
+                        {
+                            var userAuthor = Donate.GetAuthor();
+                            var userTitle = Donate.GetTitle();
+                            var donatedBook = Donate.DonatedBook(userTitle, userAuthor);
+                            library.AddBook(donatedBook);
+                            DonatedList.Add(donatedBook);
+                            Console.Write("\n\tPress [Y] to donate another book or any other key to exit.  ");
+                            Donate.AgainLoop(ref goAgain);
+                        }
                         library.Save();
+                        if (DonatedList.Count != 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("\n\tThank you for donating the following to our library:\n");
+                            foreach (var item in DonatedList)
+                            {
+                                Console.WriteLine($"\tTitle: {item.Title}\tBy: {item.Author}");
+                            }
+                        }
+                        Console.WriteLine("\n\n\tGood bye! Happy Reading!\a");
+                        System.Threading.Thread.Sleep(3000);
                         break;
                     default:
-                        Console.Clear();
                         Console.WriteLine("Invalid input");
                         break;
 
