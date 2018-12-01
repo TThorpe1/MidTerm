@@ -35,17 +35,21 @@ namespace Librarians.Midterm.App
                 switch (choice)
                 {
                     case '1':
+                        Console.Clear();
                         library.DisplayBooks();
                         break;
                     case '2':
+                        Console.Clear();
                         Console.Write("Enter title keyword: ");
                         library.SearchTitle(Console.ReadLine().ToLower());
                         break;
                     case '3':
+                        Console.Clear();
                         Console.Write("Enter author: ");
                         library.SearchAuthor(Console.ReadLine());
                         break;
                     case '4':
+                        Console.Clear();
                         library.DisplayBooks
                             ();
                         Console.Write("Enter book number to checkout: \n");
@@ -53,24 +57,29 @@ namespace Librarians.Midterm.App
                             library.CheckoutBook(number - 1);
                         else
                         {
+                            Console.Clear();
                             Console.WriteLine("Invalid input");
                         }
 
                         break;
                     case '5':
+                        Console.Clear();
                         Console.Write("Enter the book number to return: ");
                         if (Int32.TryParse(Console.ReadLine(), out number))
                             library.ReturnBook(number - 1);
                         else
                         {
+                            Console.Clear();
                             Console.WriteLine("Invalid input");
                         }
                         break;
                     case '6':
+                        Console.Clear();
                         Console.WriteLine("\nGOODBYE\nTHANK YOU FOR USING THE LIBRARY TERMINAL!\n");
                         library.Save();
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Invalid input");
                         break;
 
