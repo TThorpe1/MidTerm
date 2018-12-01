@@ -75,40 +75,49 @@ namespace Librarians.Midterm.App
 
             foreach (Book book in Books)
             {
-               
-                if (book.Title.ToLowerInvariant().Contains(keyword))
-                {
-                    results.Add(book);
-                }
-                
-                
-            }
-            foreach (Book book in results)
-            {
 
-                book.Display();
-                Console.WriteLine();
+                if (book.Title.ToLowerInvariant().Contains(keyword))
+                    results.Add(book);
             }
-           
+
+                if (results.Count != 0)
+                {
+
+                    foreach (Book books in results)
+                    {
+
+                        books.Display();
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\n*****No keyword by that name found in Library*****\n");
+                }
+            
         }
         public void SearchAuthor(string author)
         {
             List<Book> results = new List<Book>();
-                        
+
             foreach (Book book in Books)
             {
-                
 
                 if (book.Author.ToLowerInvariant().Contains(author))
-                {
                     results.Add(book);
-                }
-              
+
             }
-            foreach (Book book in results)
+            if (results.Count != 0)
             {
-                book.Display();
-                Console.WriteLine();
+                foreach (Book book in results)
+                {
+                    book.Display();
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("\n*****No author by that name found in Library*****\n");
             }
         }
         public void CheckoutBook(int index)
