@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -50,13 +50,11 @@ namespace Librarians.Midterm.App
                         library.SearchAuthor(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '4':
-<<<<<<< HEAD
                         library.DisplayBooks();
-=======
+
                         Console.Clear();
                         library.DisplayBooks
                             ();
->>>>>>> ed0920bc698ff678e5af42f41a160e07b5ba4bc3
                         Console.Write("Enter book number to checkout: \n");
                         if (Int32.TryParse(Console.ReadLine(), out number))
                             library.CheckoutBook(number - 1);
@@ -68,7 +66,6 @@ namespace Librarians.Midterm.App
 
                         break;
                     case '5':
-<<<<<<< HEAD
                         
                             Console.Write("Enter the book number to return: ");
                             if (Int32.TryParse(Console.ReadLine(), out number))
@@ -79,7 +76,6 @@ namespace Librarians.Midterm.App
                                 Console.WriteLine("Invalid input");
                             }
                             
-=======
                         Console.Clear();
                         Console.Write("Enter the book number to return: ");
                         if (Int32.TryParse(Console.ReadLine(), out number))
@@ -89,16 +85,37 @@ namespace Librarians.Midterm.App
                             Console.Clear();
                             Console.WriteLine("Invalid input");
                         }
->>>>>>> ed0920bc698ff678e5af42f41a160e07b5ba4bc3
                         break;
+                       
                     case '6':
-                        Console.Clear();
-                        Console.WriteLine("\nGOODBYE\nTHANK YOU FOR USING THE LIBRARY TERMINAL!\n");
+                        bool goAgain = true;
+                        var DonatedList = new List<Book>();
+                        Donate.ExitMessage();
+                        Donate.AgainLoop(ref goAgain);
+                        while (goAgain)
+                        {
+                            var userAuthor = Donate.GetAuthor();
+                            var userTitle = Donate.GetTitle();
+                            var donatedBook = Donate.DonatedBook(userTitle, userAuthor);
+                            library.AddBook(donatedBook);
+                            DonatedList.Add(donatedBook);
+                            Console.Write("\n\tPress [Y] to donate another book or any other key to exit.  ");
+                            Donate.AgainLoop(ref goAgain);
+                        }
                         library.Save();
-                        
+                        if (DonatedList.Count != 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("\n\tThank you for donating the following to our library:\n");
+                            foreach (var item in DonatedList)
+                            {
+                                Console.WriteLine($"\tTitle: {item.Title}\tBy: {item.Author}");
+                            }
+                        }
+                        Console.WriteLine("\n\n\tGood bye! Happy Reading!\a");
+                        System.Threading.Thread.Sleep(3000);
                         break;
                     default:
-                        Console.Clear();
                         Console.WriteLine("Invalid input");
                         break;
 
