@@ -11,13 +11,13 @@ namespace Librarians.Midterm.App
     {
         public static void PrintMenu()
         {
-            Console.WriteLine("WELCOME TO THE LIBRARY TERMINAL!\n");
-            Console.WriteLine("1.  Display all books");
-            Console.WriteLine("2.  Search by title keyword");
-            Console.WriteLine("3.  Search by author");
-            Console.WriteLine("4.  Checkout book");
-            Console.WriteLine("5.  Return book");
-            Console.WriteLine("\n6.  QUIT");
+            Console.WriteLine("\tPlease choose from one of the following: \n");
+            Console.WriteLine("\t1.  Display all books");
+            Console.WriteLine("\t2.  Search by title keyword");
+            Console.WriteLine("\t3.  Search by author");
+            Console.WriteLine("\t4.  Checkout book");
+            Console.WriteLine("\t5.  Return book");
+            Console.WriteLine("\n\t6.  QUIT");
         }
         static void Main(string[] args)
         {
@@ -25,10 +25,11 @@ namespace Librarians.Midterm.App
             library.Load();
             char choice = ' ';
             int number;
+            Console.WriteLine("\n\n\n\tWELCOME TO THE LIBRARY TERMINAL!\n");
             while (choice != '6')
             {
                 PrintMenu();
-                Console.Write("\nEnter number choice: ");
+                Console.Write("\n\tPlease enter the number of your choice: ");
                 choice = Console.ReadLine()[0];
 
                 switch (choice)
@@ -40,12 +41,12 @@ namespace Librarians.Midterm.App
                         break;
                     case '2':
                         Console.Clear();
-                        Console.Write("Enter title keyword: ");
+                        Console.Write("\n\tEnter title keyword: ");
                         library.SearchTitle(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '3':
                         Console.Clear();
-                        Console.Write("Enter author: ");
+                        Console.Write("\n\n\tEnter author: ");
 
                         library.SearchAuthor(Console.ReadLine().ToLowerInvariant());
                         break;
@@ -55,29 +56,27 @@ namespace Librarians.Midterm.App
                         library.DisplayBooks();
 
                         Console.Clear();
-                        library.DisplayBooks
-                            ();
-
-
-                        Console.Write("Enter book number to checkout: \n");
+                        library.DisplayBooks();
+                        Console.Write("\tEnter book number to checkout: ");
                         if (Int32.TryParse(Console.ReadLine(), out number))
                             library.CheckoutBook(number - 1);
                         else
                         {
                             Console.Clear();
-                            Console.WriteLine("Invalid input");
+                            Console.WriteLine("\tInvalid input");
                         }
 
                         break;
                     case '5':
                         Console.Clear();
-                        Console.Write("Enter the book number to return: ");
+                        library.DisplayBooks();
+                        Console.Write("\tEnter the book number to return: ");
                         if (Int32.TryParse(Console.ReadLine(), out number))
                             library.ReturnBook(number - 1);
                         else
                         {
                             Console.Clear();
-                            Console.WriteLine("Invalid input");
+                            Console.WriteLine("\tInvalid input");
                         }
                         break;
                        
@@ -107,10 +106,10 @@ namespace Librarians.Midterm.App
                             }
                         }
                         Console.WriteLine("\n\n\tGood bye! Happy Reading!\a");
-                        System.Threading.Thread.Sleep(3000);
+                        System.Threading.Thread.Sleep(2000);
                         break;
                     default:
-                        Console.WriteLine("Invalid input");
+                        Console.WriteLine("\tInvalid input");
                         break;
 
                 }
