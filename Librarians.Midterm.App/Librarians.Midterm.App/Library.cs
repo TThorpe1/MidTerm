@@ -156,6 +156,30 @@ namespace Librarians.Midterm.App
            
             
         }
+        public static void OverDueBookCalc(DateTime duedateInpute)
+        {
+            double dailyfee = .30;
+            DateTime dueDate = duedateInpute;
+
+            if (DateTime.Compare(dueDate, DateTime.Now) <= -1)
+            {
+                DateTime startdate = dueDate;
+                DateTime returnDate = DateTime.Now;
+                TimeSpan daysOutStanding = returnDate.Subtract(startdate);
+                var totalFee = (daysOutStanding.TotalDays * dailyfee);
+                Console.WriteLine($"Thank you for returning the book!\n"+
+                $"Unfortunately your book is {Math.Round(daysOutStanding.TotalDays, 0)} days overdue,\n"+
+                $"and it had a daily fee of {dailyfee}0 cents, your total fee is {Math.Round(totalFee, 2)} dollars");
+            }
+            else
+            {
+                Console.WriteLine("You returned the book.  Thanks for returning it on time");
+
+
+            }
+
+
+        }
         public void ReturnBook(int index)
         {
             if (index < 0 || index >= Books.Count)
@@ -171,15 +195,8 @@ namespace Librarians.Midterm.App
             else
             {
                 target.Status = Book.BookStatus.OnShelf;
+                OverDueBookCalc(target.DueDate);
 
-                if (target.DueDate.CompareTo(DateTime.Today) ==  -1)
-                {
-                    Console.WriteLine("You returned the book late.  Please pay the fee of $50");
-                }
-                else
-                {
-                    Console.WriteLine("You returned the book.  Thanks for returning it on time");
-                }
             }
         }
         
