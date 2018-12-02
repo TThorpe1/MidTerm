@@ -174,8 +174,6 @@ namespace Librarians.Midterm.App
             else
             {
                 Console.WriteLine("You returned the book.  Thanks for returning it on time");
-
-
             }
 
 

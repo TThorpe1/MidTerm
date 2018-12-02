@@ -52,14 +52,11 @@ namespace Librarians.Midterm.App
                     case '4':
 
 
-
-
                         library.DisplayBooks();
 
                         Console.Clear();
                         library.DisplayBooks
                             ();
-
 
 
                         Console.Write("Enter book number to checkout: \n");
@@ -73,24 +70,6 @@ namespace Librarians.Midterm.App
 
                         break;
                     case '5':
-
-                       
-
-                        
-
-                            Console.Write("Enter the book number to return: ");
-                            if (Int32.TryParse(Console.ReadLine(), out number))
-                                library.ReturnBook(number - 1);
-
-                            else
-                            {
-                                Console.WriteLine("Invalid input");
-                            }
-                            
-
-
-
-
                         Console.Clear();
                         Console.Write("Enter the book number to return: ");
                         if (Int32.TryParse(Console.ReadLine(), out number))
