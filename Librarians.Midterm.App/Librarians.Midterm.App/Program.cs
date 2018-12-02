@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,7 +23,6 @@ namespace Librarians.Midterm.App
         {
             Library library = new Library();
             library.Load();
-
             char choice = ' ';
             int number;
             while (choice != '6')
@@ -37,18 +36,22 @@ namespace Librarians.Midterm.App
                     case '1':
                         Console.Clear();
                         library.DisplayBooks();
+                      
                         break;
                     case '2':
                         Console.Clear();
                         Console.Write("Enter title keyword: ");
-                        library.SearchTitle(Console.ReadLine().ToLower());
+                        library.SearchTitle(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '3':
                         Console.Clear();
                         Console.Write("Enter author: ");
-                        library.SearchAuthor(Console.ReadLine());
+
+                        library.SearchAuthor(Console.ReadLine().ToLowerInvariant());
                         break;
                     case '4':
+                        library.DisplayBooks();
+
                         Console.Clear();
                         library.DisplayBooks
                             ();
@@ -63,6 +66,16 @@ namespace Librarians.Midterm.App
 
                         break;
                     case '5':
+                        
+                            Console.Write("Enter the book number to return: ");
+                            if (Int32.TryParse(Console.ReadLine(), out number))
+                                library.ReturnBook(number - 1);
+
+                            else
+                            {
+                                Console.WriteLine("Invalid input");
+                            }
+                            
                         Console.Clear();
                         Console.Write("Enter the book number to return: ");
                         if (Int32.TryParse(Console.ReadLine(), out number))
