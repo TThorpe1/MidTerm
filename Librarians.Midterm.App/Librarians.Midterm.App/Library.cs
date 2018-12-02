@@ -67,6 +67,7 @@ namespace Librarians.Midterm.App
         }
         public void DisplayBooks()
         {
+            Console.WriteLine();
             int index = 1;
             foreach (Book book in Books)
             {
@@ -101,7 +102,7 @@ namespace Librarians.Midterm.App
                 }
                 else
                 {
-                    Console.WriteLine("\n*****No keyword by that name found in Library*****\n");
+                    Console.WriteLine("\n\t*****No item with that keyword found in Library*****\n");
                 }
             
         }
@@ -135,20 +136,20 @@ namespace Librarians.Midterm.App
             
                 if (index < 0 || index >= Books.Count)
                 {
-                    Console.WriteLine("Invalid book number");
+                    Console.WriteLine("\tInvalid book number");
                     return;
                 }
                 Book target = Books[index];
 
                 if (target.Status == Book.BookStatus.CheckedOut)
                 {
-                    Console.WriteLine("Sorry!  The Book is already checked out.  Due date: " + target.DueDate.ToString("d"));
+                    Console.WriteLine("\tSorry!  The Book is already checked out.  Due date: " + target.DueDate.ToString("d"));
                 }
                 else
                 {
                     target.Status = Book.BookStatus.CheckedOut;
                     target.DueDate = DateTime.Today.AddDays(14);
-                    Console.WriteLine($"\nYou checked out {target.Title}.  It is due back on or before: " + target.DueDate.ToString("d"));
+                    Console.WriteLine($"\n\tYou checked out {target.Title}.  It is due back on or before: " + target.DueDate.ToString("d"));
                     Checkout.Add(target);
                    
                 }
@@ -167,13 +168,12 @@ namespace Librarians.Midterm.App
                 DateTime returnDate = DateTime.Now;
                 TimeSpan daysOutStanding = returnDate.Subtract(startdate);
                 var totalFee = (daysOutStanding.TotalDays * dailyfee);
-                Console.WriteLine($"Thank you for returning the book!\n"+
-                $"Unfortunately your book is {Math.Round(daysOutStanding.TotalDays, 0)} days overdue,\n"+
+                Console.WriteLine($"Unfortunately your book is {Math.Round(daysOutStanding.TotalDays, 0)} days overdue,\n"+
                 $"and it had a daily fee of {dailyfee}0 cents, your total fee is {Math.Round(totalFee, 2)} dollars");
             }
             else
             {
-                Console.WriteLine("You returned the book.  Thanks for returning it on time");
+                Console.WriteLine("Thank you for returning it on time.");
             }
 
 
@@ -193,6 +193,7 @@ namespace Librarians.Midterm.App
             else
             {
                 target.Status = Book.BookStatus.OnShelf;
+                Console.WriteLine($"Thank you for returning {target.Title}.\n");
                 OverDueBookCalc(target.DueDate);
 
             }
