@@ -169,7 +169,7 @@ namespace Librarians.Midterm.App
                 TimeSpan daysOutStanding = returnDate.Subtract(startdate);
                 var totalFee = (daysOutStanding.TotalDays * dailyfee);
                 Console.WriteLine($"\tUnfortunately your book is {Math.Round(daysOutStanding.TotalDays, 0)} days overdue,\n"+
-                $"and it had a daily fee of {dailyfee}0 cents, your total fee is {Math.Round(totalFee, 2)} dollars");
+                $"\tand it had a daily fee of {dailyfee}0 cents, your total fee is ${Math.Round(totalFee, 2)}0");
             }
             else
             {
